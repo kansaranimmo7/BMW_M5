@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===============================
+   GLOBAL SETTINGS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #087cff;
+    --red: #ed1c24;
+    --white: #ffffff;
+    --dark: #02060d;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #02060d;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 25px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 20;
+
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7),
+        transparent
+    );
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.back-btn {
+    color: white;
+    text-decoration: none;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    padding: 12px 20px;
+
+    border: 1px solid var(--blue);
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--blue);
+    box-shadow: 0 0 25px var(--blue);
+}
+
+/* ===============================
+   MAIN EXPERIENCE
+================================ */
+
+.experience {
+    height: 100vh;
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 65%,
+            rgba(0, 100, 255, 0.25),
+            transparent 55%
+        ),
+
+        radial-gradient(
+            ellipse at 10% 90%,
+            rgba(237, 28, 36, 0.18),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #02060d,
+            #07172b,
+            #02060d
+        );
+}
+
+/* ===============================
+   BACKGROUND GRID
+================================ */
+
+.experience::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0,124,255,0.09) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,124,255,0.09) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    opacity: 0.5;
+
+    pointer-events: none;
+}
+
+/* ===============================
+   BACKGROUND LIGHT EFFECT
+================================ */
+
+.experience::after {
+    content: '';
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -150px;
+    top: 20%;
+
+    background: rgba(0, 100, 255, 0.08);
+
+    filter: blur(100px);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+/* ===============================
+   EXPERIENCE TITLE
+================================ */
+
+.experience-title {
+    position: absolute;
+
+    top: 15%;
+    left: 7%;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.experience-title p:first-child {
+    color: var(--blue);
+
+    font-size: 10px;
+    letter-spacing: 5px;
+
+    font-weight: 600;
+
+    text-shadow: 0 0 15px var(--blue);
+}
+
+.experience-title h1 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(35px, 5vw, 65px);
+
+    font-weight: 900;
+
+    margin-top: 15px;
+
+    letter-spacing: -2px;
+
+    text-shadow: 0 5px 30px rgba(0,0,0,0.5);
+}
+
+.experience-title h1 span {
+    color: var(--red);
+
+    text-shadow:
+        0 0 15px rgba(237,28,36,0.7),
+        0 0 35px rgba(237,28,36,0.3);
+}
+
+.instruction {
+    margin-top: 15px;
+
+    color: #aab5c4;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+/* ===============================
+   RACING MODE BUTTON
+================================ */
+
+#racingModeBtn {
+    margin-top: 25px;
+
+    padding: 15px 28px;
+
+    background: linear-gradient(
+        90deg,
+        #063b91,
+        #e10620
+    );
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    border-radius: 3px;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    box-shadow:
+        0 0 15px rgba(0,102,255,0.4),
+        0 0 25px rgba(225,6,32,0.2);
+
+    transition: all 0.3s ease;
+}
+
+#racingModeBtn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(0,102,255,0.7),
+        0 0 35px rgba(225,6,32,0.5);
+}
+
+#racingModeBtn:active {
+    transform: scale(0.96);
+}
+
+/* ===============================
+   3D CAR CONTAINER
+================================ */
+
+#car-container {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+}
+
+#car-container canvas {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    touch-action: none;
+}
+
+/* ===============================
+   BOTTOM DETAILS
+================================ */
+
+.bottom-details {
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 7%;
+    right: 7%;
+
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #8293a9;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    pointer-events: none;
+}
+
+.bottom-details span:first-child {
+    color: var(--blue);
+
+    text-shadow: 0 0 12px var(--blue);
+}
+
+/* ===============================
+   SELECTION
+================================ */
+
+::selection {
+    background: var(--blue);
+    color: white;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+
+@media(max-width: 700px) {
+
+    header {
+        padding: 20px 6%;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .back-btn {
+        font-size: 8px;
+        padding: 10px;
+    }
+
+    .experience-title {
+        top: 17%;
+        left: 6%;
+    }
+
+    .experience-title h1 {
+        font-size: 35px;
+    }
+
+    .experience-title p:first-child {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .instruction {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    #racingModeBtn {
+        font-size: 9px;
+        padding: 12px 17px;
+    }
+
+    .bottom-details {
+        left: 6%;
+        right: 6%;
+
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+}
+
+/* ===============================
+   SMALL MOBILE
+================================ */
+
+@media(max-width: 380px) {
+
+    .experience-title h1 {
+        font-size: 29px;
+    }
+
+    .bottom-details {
+        font-size: 6px;
+    }
+
+}

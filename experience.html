@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMW M5 | 3D Experience</title>
+
+    <link rel="stylesheet" href="experience.css">
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">BMW <span>M5</span></div>
+
+        <a href="index.html" class="back-btn">
+            ← BACK TO HOME
+        </a>
+
+    </header>
+
+    <main>
+
+        <section class="experience">
+
+            <div class="experience-title">
+
+                <p>THE ULTIMATE DRIVING MACHINE</p>
+
+                <h1>MEET THE <span>BEAST.</span></h1>
+
+                <p class="instruction">
+                    DRAG TO ROTATE • SCROLL TO ZOOM
+                </p>
+
+                <button id="racingModeBtn">
+                    ACTIVATE RACING MODE ⚡
+                </button>
+
+            </div>
+
+            <div id="car-container"></div>
+
+            <div class="bottom-details">
+
+                <span>BMW M5</span>
+
+                <span>ENGINEERED FOR PERFORMANCE</span>
+
+                <span>01 / 01</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="experience.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #02040a;
+}
+
+/* FULL SCREEN SHOWROOM */
+
+body {
+    position: relative;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #101c32 0%,
+            #050a14 55%,
+            #010207 100%
+        );
+}
+
+/* CINEMATIC LIGHTS */
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 10%;
+    left: -250px;
+    background: #0066ff;
+    opacity: 0.12;
+    filter: blur(150px);
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -250px;
+    bottom: 0;
+    background: #ed102b;
+    opacity: 0.12;
+    filter: blur(150px);
+    pointer-events: none;
+}
+
+/* 3D CAR CONTAINER */
+
+#racing-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#racing-container canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    position: fixed;
+    top: 30px;
+    left: 35px;
+    z-index: 10;
+
+    padding: 12px 22px;
+
+    color: white;
+    text-decoration: none;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    border: 1px solid rgba(0, 124, 255, 0.7);
+    background: rgba(0, 10, 25, 0.6);
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #087cff;
+    box-shadow: 0 0 25px #087cff;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .back-btn {
+        top: 18px;
+        left: 18px;
+        padding: 10px 15px;
+        font-size: 9px;
+    }
+
+}

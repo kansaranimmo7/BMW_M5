@@ -1,0 +1,807 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #087cff;
+    --light-blue: #00aaff;
+    --red: #ed1c24;
+    --navy: #061426;
+    --white: #ffffff;
+    --grey: #aab5c4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #02060d;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #02060d;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 1s ease;
+}
+
+.loader h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(35px, 6vw, 65px);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 9px;
+    text-shadow: 0 0 30px var(--blue);
+}
+
+.loader p {
+    margin-top: 18px;
+    color: var(--light-blue);
+    font-size: 10px;
+    letter-spacing: 6px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 28px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 20;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6),
+        transparent
+    );
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 27px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 5px;
+
+    text-shadow: 0 0 20px var(--blue);
+}
+
+.logo::after {
+    content: ' M MOTORSPORT';
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: var(--red);
+    margin-top: 3px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+nav a {
+    position: relative;
+
+    color: #b8c3d2;
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--red);
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   HERO BACKGROUND
+========================= */
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 75% 55%,
+            rgba(0, 105, 255, 0.22),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 15% 90%,
+            rgba(220, 0, 25, 0.15),
+            transparent 40%
+        ),
+        linear-gradient(
+            120deg,
+            #02050a,
+            #07172b 55%,
+            #02060d
+        );
+}
+
+/* Racing grid */
+
+.hero::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 130, 255, 0.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 130, 255, 0.07) 1px,
+            transparent 1px
+        );
+
+    background-size: 65px 65px;
+
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black,
+        transparent
+    );
+
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Racing light streak */
+
+.hero::after {
+    content: '';
+
+    position: absolute;
+
+    width: 600px;
+    height: 2px;
+
+    right: -100px;
+    top: 28%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--blue),
+        var(--red),
+        transparent
+    );
+
+    box-shadow:
+        0 0 20px var(--blue),
+        0 0 40px var(--red);
+
+    transform: rotate(-15deg);
+
+    opacity: 0.8;
+
+    animation: lightMove 5s infinite alternate;
+}
+
+@keyframes lightMove {
+    from {
+        transform: translateX(80px) rotate(-15deg);
+        opacity: 0.3;
+    }
+
+    to {
+        transform: translateX(-80px) rotate(-15deg);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+    position: absolute;
+
+    left: 9%;
+    top: 32%;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.subtitle {
+    color: var(--light-blue);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(65px, 9vw, 125px);
+    font-weight: 900;
+
+    letter-spacing: -6px;
+    line-height: 1.1;
+
+    color: white;
+
+    text-shadow:
+        0 0 30px rgba(255,255,255,0.08);
+}
+
+.hero h1 span {
+    color: var(--blue);
+
+    text-shadow:
+        0 0 20px rgba(0,124,255,0.7),
+        0 0 50px rgba(0,124,255,0.3);
+}
+
+.description {
+    color: #aab5c4;
+
+    letter-spacing: 4px;
+    font-size: 12px;
+
+    margin-top: 20px;
+}
+
+/* =========================
+   EXPLORE BUTTON
+========================= */
+
+#exploreBtn {
+    pointer-events: auto;
+
+    position: relative;
+
+    margin-top: 42px;
+    padding: 18px 32px;
+
+    color: white;
+
+    background: linear-gradient(
+        100deg,
+        #005edb,
+        #087cff
+    );
+
+    border: none;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    clip-path: polygon(
+        0 0,
+        93% 0,
+        100% 25%,
+        100% 100%,
+        7% 100%,
+        0 75%
+    );
+
+    transition: 0.35s;
+}
+
+#exploreBtn::before {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transition: 0.5s;
+}
+
+#exploreBtn:hover::before {
+    left: 100%;
+}
+
+#exploreBtn:hover {
+    background: linear-gradient(
+        100deg,
+        #ed1c24,
+        #087cff
+    );
+
+    box-shadow:
+        0 0 20px rgba(0,124,255,0.7),
+        0 0 40px rgba(237,28,36,0.3);
+
+    transform: translateY(-4px);
+}
+
+/* =========================
+   3D CAR AREA
+========================= */
+
+#car-container {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+}
+
+#car-container canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* =========================
+   BOTTOM DETAILS
+========================= */
+
+.bottom-text {
+    position: absolute;
+
+    bottom: 30px;
+    left: 7%;
+    right: 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #8293a9;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.bottom-text span:first-child {
+    color: var(--light-blue);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 25px 5%;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero-content {
+        left: 6%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 22px 6%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero-content {
+        top: 24%;
+        left: 7%;
+    }
+
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 14vw, 75px);
+        letter-spacing: -4px;
+    }
+
+    .description {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    #exploreBtn {
+        margin-top: 30px;
+        padding: 16px 22px;
+        font-size: 9px;
+    }
+
+    .bottom-text {
+        bottom: 20px;
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 49px;
+    }
+
+    .subtitle {
+        font-size: 8px;
+    }
+
+}
+/* =====================================
+   MIDNIGHT BEAST - CINEMATIC INTRO
+===================================== */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    background: #02040a;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    animation: introExit 1.2s ease 5s forwards;
+}
+
+/* BLUE LIGHT */
+
+.intro-light {
+    position: absolute;
+    width: 65vw;
+    height: 3px;
+
+    filter: blur(3px);
+
+    opacity: 0;
+}
+
+.blue-light {
+    background: #087cff;
+    box-shadow: 0 0 30px #087cff, 0 0 80px #087cff;
+
+    transform: rotate(-25deg);
+
+    animation: blueReveal 2s ease 0.5s forwards;
+}
+
+/* RED LIGHT */
+
+.red-light {
+    background: #ed1c24;
+    box-shadow: 0 0 30px #ed1c24, 0 0 80px #ed1c24;
+
+    transform: rotate(25deg);
+
+    animation: redReveal 2s ease 1s forwards;
+}
+
+/* INTRO CONTENT */
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    animation: titleReveal 1.5s ease 1.2s both;
+}
+
+.intro-small {
+    color: #168cff;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 7px;
+
+    margin-bottom: 25px;
+}
+
+.intro-content h1 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(35px, 8vw, 100px);
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    color: white;
+
+    text-shadow: 0 0 35px rgba(0,124,255,0.5);
+}
+
+.intro-content h1 span {
+    color: #ed1c24;
+
+    text-shadow:
+        0 0 20px rgba(237,28,36,0.8),
+        0 0 50px rgba(237,28,36,0.4);
+}
+
+/* LINE */
+
+.intro-line {
+    width: 0;
+    height: 2px;
+
+    margin: 25px auto;
+
+    background: linear-gradient(
+        90deg,
+        #087cff,
+        white,
+        #ed1c24
+    );
+
+    box-shadow: 0 0 20px #087cff;
+
+    animation: lineExpand 1.5s ease 2s forwards;
+}
+
+/* BOTTOM TEXT */
+
+.intro-bottom {
+    color: #9daec2;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-top: 20px;
+
+    animation: fadeIn 1s ease 2.5s both;
+}
+
+/* LOADING TEXT */
+
+.intro-loading {
+    position: absolute;
+
+    bottom: 45px;
+
+    color: #087cff;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    animation: loadingBlink 1s infinite;
+}
+
+/* ANIMATIONS */
+
+@keyframes blueReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) rotate(-25deg);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.7;
+        transform: translateX(100%) rotate(-25deg);
+    }
+
+}
+
+@keyframes redReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateX(100%) rotate(25deg);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.7;
+        transform: translateX(-100%) rotate(25deg);
+    }
+
+}
+
+@keyframes titleReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+        filter: blur(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+}
+
+@keyframes lineExpand {
+
+    to {
+        width: 80%;
+    }
+
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes loadingBlink {
+
+    50% {
+        opacity: 0.3;
+    }
+
+}
+
+@keyframes introExit {
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+
+    .intro-small {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .intro-content h1 {
+        letter-spacing: 1px;
+    }
+
+    .intro-bottom {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .intro-loading {
+        font-size: 7px;
+    }
+
+}
